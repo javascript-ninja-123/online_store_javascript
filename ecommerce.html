@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Sweatshirt Gallery</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<style>
+		h1{
+			text-align:center;
+			font-size:50px;
+			margin-bottom:4%;
+		}
+		.addClass{
+			width:100%;
+			margin:0 auto;
+			display:block;
+		}
+		.title{
+			text-align:center;
+
+		
+			
+		}
+		.btn{
+			margin-top:2%;
+			display:block !important;
+			margin:0 auto !important;
+			width:120px;
+		}
+
+
+		</style>
+	
+		
+	</head>
+	<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Sweatshirt Gallery</h1>
+			</div>
+			<div id="wrapper">
+			<div class="row">
+			<div class="col-md-4 col-sm-6">
+				<div class="panel panel-default">
+				  <div class="panel-body" id="p0">
+				  
+				   
+				  </div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6">
+				<div class="panel panel-default">
+				  <div class="panel-body" id="p1">
+				  	
+				   
+				  </div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6">
+				<div class="panel panel-default">
+				  <div class="panel-body" id="p2">
+				
+				   
+				  </div>
+				</div>
+			</div>
+			</div>
+			<div class="row">
+			<div class="col-md-4 col-sm-6">
+				<div class="panel panel-default">
+				  <div class="panel-body" id="p3">
+				  	
+				  </div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6">
+				<div class="panel panel-default">
+				  <div class="panel-body" id="p4">
+				  
+				   
+				  </div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6">
+				<div class="panel panel-default">
+				  <div class="panel-body" id="p5">
+				  	
+				   
+				  </div>
+				</div>
+			</div>
+			</div>
+			</div>
+			
+			
+		</div>
+	</div>
+
+		
+	<script>
+
+	var clothesImages =[
+	"http://www.kapa-dokya.com/1939/double-cuff-and-save-and-survive-embroidery-sweatshirt.jpg",
+	"http://www.kapa-dokya.com/1921/double-cuff-and-logo-turtleneck-sweatshirt.jpg",
+	"http://www.kapa-dokya.com/1945/hooded-sweatshirt-with-embroidery.jpg",
+	"http://www.kapa-dokya.com/1927/crewneck-sweatshirt.jpg",
+	"http://www.kapa-dokya.com/1922/double-cuff-and-logo-turtleneck-sweatshirt.jpg",
+	"http://www.kapa-dokya.com/1909/double-cuff-and-logo-t-shirt.jpg",
+
+	];
+
+	for(var i = 0; i<clothesImages.length; i++)
+	{
+	
+	var images = document.createElement("img");
+	// setAttribute
+	images.src = clothesImages[i];
+	// set Class
+	images.className = "addClass";
+	var panel = document.getElementById("p"+i);
+	panel.appendChild(images);
+
+		
+
+
+	}
+
+	function Sweatshirt(title,size,color,stock){
+
+		this.title = title,
+		this.size = size,
+		this.color = color,
+		this.stock = stock
+
+
+	}
+	var yellow = new Sweatshirt("Mustard sweatshirt", "large","mustard","22");
+	var black = new Sweatshirt("Darkblack sweatshirt", "medium","darkblack","2");
+	var grey = new Sweatshirt("Grey hoodie", "medium","lightgrey","32");
+	var blue = new Sweatshirt("Blue sweatshirt", "large","blue","100");
+	var green = new Sweatshirt("Green sweatshirt", "large","green","170");
+	var cream = new Sweatshirt("Cream sweatshirt", "x-large","cream","90");
+
+	var textArr = [yellow,black,grey,blue,green,cream];
+
+	for(var i =0; i<textArr.length; i++){
+
+	var titleText = document.createElement("h2");
+	var text = document.createTextNode(textArr[i].title);
+	titleText.appendChild(text);
+	titleText.className="title";
+	var panel = document.getElementById("p"+i);
+	panel.appendChild(titleText);
+
+
+
+	/// size
+
+	var sizeText = document.createElement("h3");
+	sizeText.innerHTML = "available size: <strong>"+textArr[i].size+"</strong>";
+	sizeText.className = "title";
+	panel.appendChild(sizeText);
+
+
+	//color
+	var colorText=document.createElement("h4");
+	colorText.innerHTML = "color: "+textArr[i].color+"";
+	colorText.className = 'title';
+	panel.appendChild(colorText);
+
+
+	//stock
+	var stockText=document.createElement("h4");
+	var stock = document.createTextNode(textArr[i].stock);
+	stockText.innerHTML="available stock: "+textArr[i].stock+"";
+	stockText.className="title";
+	panel.appendChild(stockText);
+
+	//button
+	var buttonText = document.createElement("button");
+	buttonText.innerHTML = "Buy Now";
+	buttonText.className="btn btn-warning";
+	panel.appendChild(buttonText);
+
+
+
+	//create more panel
+
+
+
+
+	}
+
+
+	for(var i=0;i<3;i++){
+var divText = document.createElement("div");
+	divText.className = "col-md-4 col-sm-6";
+	var panelText = document.createElement("div");
+	panelText.className="panel panel-default";
+	var panelBody =document.createElement("div");
+	panelBody.innerHTML="soldout";
+	
+	panelBody.className = "panel-body title";
+	panelText.appendChild(panelBody);
+	divText.appendChild(panelText);
+	var wrapper = document.getElementById("wrapper");
+	wrapper.appendChild(divText);
+
+
+
+	}
+	
+
+
+
+
+
+
+	
+
+
+
+
+	</script>
+	</body>
+</html>
